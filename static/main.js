@@ -15,7 +15,6 @@
     
     function rebuildItemsList(listItems) {
         list.innerHTML = "";
-        console.log(listItems);
         if(listItems != undefined)
             for (var i = 0; i < listItems.length; i++) {
                 var newNode = document.createElement("li");
@@ -27,7 +26,6 @@
     }
 
     function addItem(item) {
-        console.log(item);
         var newNode = document.createElement("li");
             newNode.setAttribute("draggable", true);
             newNode.setAttribute("data-element-id", item.id);
@@ -115,7 +113,6 @@
     
     ws.onmessage = function (evt) {
         var data = JSON.parse(evt.data);
-        console.log(data);
         if(data.method == "get") {
             id = data.body.id;
             rebuildItemsList(data.body.elements);
